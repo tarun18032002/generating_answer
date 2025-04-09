@@ -1,6 +1,6 @@
 # 🧠 Question Answer Manager using Django + OpenAI
 
-A web app that lets you upload `.docx` files containing technical questions, auto-generates answers using OpenAI, and displays all results batch-wise — perfect for studying, documentation, or impressing your CTO.
+A web app that lets you upload `.docx` files containing technical questions, auto-generates answers using OpenAI, and displays all results batch-wise — perfect for studying, documentation.
 
 ---
 
