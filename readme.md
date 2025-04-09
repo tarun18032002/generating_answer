@@ -1,77 +1,85 @@
 # 🧠 Question Answer Manager using Django + OpenAI
 
-A web application that reads technical questions from a `.docx` file, stores them in a database, and uses OpenAI's GPT API to generate and save answers — all in a clean, user-friendly interface.
+A web app that lets you upload `.docx` files containing technical questions, auto-generates answers using OpenAI, and displays all results batch-wise — perfect for studying, documentation, or impressing your CTO.
 
 ---
 
 ## 🚀 Features
 
-- 📄 Upload a `.docx` file containing questions
-- 📥 Store questions in a database
-- 🤖 Auto-generate detailed answers using OpenAI GPT
-- ✅ Mark questions as answered or pending
-- 🧾 Admin panel to manage all entries
+- 📄 Upload `.docx` files with questions (one per paragraph)
+- 🔐 Each upload is saved as a unique batch (UUID-based)
+- 🧠 Auto-generate answers using OpenAI GPT API
+- 💾 Store questions and answers in the database
+- 🔍 View all Q&A entries by batch
+- ✅ Clean and simple UI with upload feedback
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **Backend**: Django
-- **Database**: SQLite (default), PostgreSQL supported
-- **AI Integration**: OpenAI API (GPT-3.5)
+- **AI Integration**: OpenAI GPT-3.5 Turbo
+- **Database**: SQLite (default)
 - **File Parsing**: `python-docx`
 
 ---
 
-## 🖥️ Screenshots
+## 🖼️ Screenshots
 
-- ✅ Upload `.docx` file with questions
-- 📋 View list of all questions and answers
-- 🧠 Generate answers with a single click
+### 🔼 Upload `.docx` File
+Uploads a Word file with questions.
+
+### ✅ Answers Generated Automatically
+Each question is answered using OpenAI and stored.
+
+### 🔍 View Batch Questions & Answers
+Each batch gets a unique page showing all Q&As.
 
 ---
 
-## 🧑‍💻 How to Run Locally
+## 🧑‍💻 Getting Started Locally
 
-1. **Clone this repository**
-   ```bash
-   git clone https://github.com/your-username/question-answer-manager.git
-   cd question-answer-manager
-2. **Create virtual environment**
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/question-answer-manager.git
+cd question-answer-manager
+
+2. **Create a virtual environment**
     ```python -m venv env
-     source env/bin/activate   # Windows: env\Scripts\activate
+    source env/bin/activate  # On Windows:env\Scripts\activate
     ```
+
 3. **Install dependencies**
     ```pip install -r requirements.txt```
-4. **Add your OpenAI API key**
-   ### In settings.py, add:
 
-   ``` OPENAI_API_KEY = 'your-openai-api-key'```
+4. **Set your OpenAI API Key**
+
+    ### Option A: Set as environment variable
+
+    ```export OPENAI_API_KEY="your-api-key"  # Windows: set OPENAI_API_KEY=your-api-key```
+
+    ### Option B: Hardcode in views.py (for quick testing)
+
+    ```openai.api_key = "your-api-key"```
+
 5. **Run migrations**
 
-    ```python manage.py makemigrations
+    ```
+    python manage.py makemigrations
     python manage.py migrate
     ```
-6. **Start the development server**
-    ```python manage.py runserver```
 
-7. **Open in browser**
-    ```http://localhost:8000```
+6. **Run the development server**
 
+    ``` python manage.py runserver ```
 
-## 🖥️ Screenshots
+📌 Future Enhancements
+- 🔐 Add user authentication & roles
 
-### 🔼 Upload Page
-![alt text](image.png)
+- 📤 Export batch data to Excel or PDF
 
-### ✅ Answer Generated
-![alt text](image-2.png)
+- 🏷️ Tag questions by category
 
-### 🔧 Admin Panel
-![alt text](image-1.png)
+- 🔍 Search/filter functionality
 
-
-# 🏁 Future Ideas
-    1. Add login & user roles
-    2. Export answered questions to PDF/Excel
-    3. Add tagging for topics (DB, Python, etc.)
+- 📊 Stats on questions/topics
