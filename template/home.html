@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Questions List</title>
+</head>
+<body>
+<h1>Questions</h1>
+<a href="/upload/">Upload Questions</a> | <a href="/generate/">Generate Answers</a>
+<table border="1">
+    <tr><th>Question</th><th>Answer</th><th>Status</th></tr>
+    {% for q in questions %}
+    <tr>
+        <td>{{ q.text }}</td>
+        <td>{{ q.answer|default:"-- Not answered --" }}</td>
+        <td>{{ q.is_answered }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
