@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Questions List</title>
@@ -14,7 +14,78 @@
         <td>{{ q.answer|default:"-- Not answered --" }}</td>
         <td>{{ q.is_answered }}</td>
     </tr>
-    {% endfor %}
+    {% endfor %} 
+    
+
 </table>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Questions List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f5f5f5;
+        }
+        .not-answered {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<h1>Questions</h1>
+<p>
+    <a href="/upload/">Upload Questions</a> |
+    <a href="/generate/">Generate Answers</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Batch ID</th>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for question in questions %}
+        <tr>
+            <td>{{ question.batch.id }}</td>
+            <td>{{ question.text }}</td>
+            <td>
+                {% if question.answer %}
+                    {{ question.answer }}
+                {% else %}
+                    <span class="not-answered">-- Not answered --</span>
+                {% endif %}
+            </td>
+            <td>
+                {% if question.answer %}
+                    ✅ Answered
+                {% else %}
+                    ❌ Pending
+                {% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No questions found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 </body>
 </html>

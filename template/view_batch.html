@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Batch {{ batch.id }}</title>
+</head>
+<body>
+    <h2>Questions and Answers - Batch {{ batch.filename }}</h2>
+    <a href="/">⬅ Upload New</a><br><br>
+
+    {% for q in questions %}
+        <div style="margin-bottom: 20px;">
+            <strong>Q:</strong> {{ q.text }}<br>
+            <strong>A:</strong> {{ q.answer }}
+        </div>
+    {% endfor %}
+</body>
+</html>
