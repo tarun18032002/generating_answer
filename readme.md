@@ -40,40 +40,50 @@ Each batch gets a unique page showing all Q&As.
 ## 🧑‍💻 Getting Started Locally
 
 ### 1. Clone the repository
-```bash
-git clone https://github.com/your-username/question-answer-manager.git
-cd question-answer-manager
+    ```bash
+    git clone https://github.com/your-username/question-answer-manager.git
+    cd question-answer-manager
+    ```
 
-2. **Create a virtual environment**
-    ```python -m venv env
+### 2. Create a virtual environment
+    ```bash 
+    python -m venv env
     source env/bin/activate  # On Windows:env\Scripts\activate
     ```
 
-3. **Install dependencies**
-    ```pip install -r requirements.txt```
-
-4. **Set your OpenAI API Key**
-
-    ### Option A: Set as environment variable
-
-    ```export OPENAI_API_KEY="your-api-key"  # Windows: set OPENAI_API_KEY=your-api-key```
-
-    ### Option B: Hardcode in views.py (for quick testing)
-
-    ```openai.api_key = "your-api-key"```
-
-5. **Run migrations**
-
+### 3. Install dependencies
+    ```bash
+    pip install -r requirements.txt
     ```
+
+### 4. Set your OpenAI API Key
+
+Option A: Set as environment variable
+
+    ```bash
+    export OPENAI_API_KEY="your-api-key"  # Windows: set OPENAI_API_KEY=your-api-key
+    ```
+Option B: Hardcode in views.py (for quick testing)
+
+    ```bash
+    openai.api_key = "your-api-key"
+    ```
+
+### 5. Run migrations
+
+    ```bash
     python manage.py makemigrations
     python manage.py migrate
     ```
 
-6. **Run the development server**
+### 6. Run the development server
 
-    ``` python manage.py runserver ```
+    ```bash
+     python manage.py runserver 
+    ```
+---
 
-📌 Future Enhancements
+## 📌 Future Enhancements
 - 🔐 Add user authentication & roles
 
 - 📤 Export batch data to Excel or PDF
